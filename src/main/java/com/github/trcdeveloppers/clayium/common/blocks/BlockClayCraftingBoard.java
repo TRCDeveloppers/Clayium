@@ -4,8 +4,14 @@ import com.github.trcdeveloppers.clayium.common.annotation.CBlock;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.inventory.GuiCrafting;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.EnumBlockRenderType;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
@@ -49,10 +55,21 @@ public class BlockClayCraftingBoard extends BlockContainer {
         addCollisionBoxToList(pos,entityBox,collidingBoxes,BOUND_BOX);
     }
 
+    @Override
+    public EnumBlockRenderType getRenderType(IBlockState state) {
+        return EnumBlockRenderType.MODEL;
+    }
+
     @Nullable
     @Override
     public TileEntity createNewTileEntity(World worldIn, int meta) {
         return null;
+    }
+
+    @Override
+    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+        Minecraft.getMinecraft().displayGuiScreen(new GuiClayWorkBench(playerIn.inventory,worldIn));
+        return true;
     }
 
     @Override
