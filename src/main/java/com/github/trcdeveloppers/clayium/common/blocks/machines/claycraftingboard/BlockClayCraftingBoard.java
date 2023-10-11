@@ -1,11 +1,9 @@
-package com.github.trcdeveloppers.clayium.common.blocks;
+package com.github.trcdeveloppers.clayium.common.blocks.machines.claycraftingboard;
 
 import com.github.trcdeveloppers.clayium.common.annotation.CBlock;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.inventory.GuiCrafting;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
@@ -68,7 +66,6 @@ public class BlockClayCraftingBoard extends BlockContainer {
 
     @Override
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-        Minecraft.getMinecraft().displayGuiScreen(new GuiClayWorkBench(playerIn.inventory,worldIn));
         return true;
     }
 
