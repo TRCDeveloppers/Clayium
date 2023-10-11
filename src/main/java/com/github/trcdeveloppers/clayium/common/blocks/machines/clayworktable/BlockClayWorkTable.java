@@ -29,8 +29,8 @@ import java.util.Objects;
 
 @CBlock(registryName = "clay_work_table")
 @ParametersAreNonnullByDefault
-public class ClayWorkTable extends BlockContainer implements ITiered {
-    public ClayWorkTable() {
+public class BlockClayWorkTable extends BlockContainer implements ITiered {
+    public BlockClayWorkTable() {
         super(Material.ROCK);
     }
 
