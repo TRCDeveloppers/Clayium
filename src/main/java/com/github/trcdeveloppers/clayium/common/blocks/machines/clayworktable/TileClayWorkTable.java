@@ -14,7 +14,9 @@ import net.minecraftforge.items.ItemStackHandler;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
 
+@ParametersAreNonnullByDefault
 public class TileClayWorkTable extends TileEntity {
 
     private static final Capability<IItemHandler> ITEM_HANDLER_CAPABILITY = CapabilityItemHandler.ITEM_HANDLER_CAPABILITY;
@@ -24,6 +26,7 @@ public class TileClayWorkTable extends TileEntity {
     @Nonnull
     private ClayWorkTableRecipes.Recipe currentRecipe = ClayWorkTableRecipes.Recipe.EMPTY;
 
+    @Nonnull
     @Override
     public NBTTagCompound writeToNBT(NBTTagCompound compound) {
         compound.setTag("Inventory", this.handler.serializeNBT());
