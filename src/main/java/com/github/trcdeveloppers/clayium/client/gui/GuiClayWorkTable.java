@@ -2,7 +2,7 @@ package com.github.trcdeveloppers.clayium.client.gui;
 
 import com.github.trcdeveloppers.clayium.Clayium;
 import com.github.trcdeveloppers.clayium.common.blocks.machines.clayworktable.ClayWorkTableMethod;
-import com.github.trcdeveloppers.clayium.common.blocks.machines.clayworktable.ClayWorktableContainer;
+import com.github.trcdeveloppers.clayium.common.blocks.machines.clayworktable.ContainerClayWorktable;
 import com.github.trcdeveloppers.clayium.common.blocks.machines.clayworktable.TileClayWorkTable;
 import com.github.trcdeveloppers.clayium.client.gui.button.GuiButtonImageToggleable;
 import net.minecraft.client.gui.GuiButton;
@@ -20,7 +20,7 @@ public class GuiClayWorkTable extends GuiContainer {
     private final TileClayWorkTable tile;
 
     public GuiClayWorkTable(IInventory playerInv, TileClayWorkTable te) {
-        super(new ClayWorktableContainer(playerInv, te));
+        super(new ContainerClayWorktable(playerInv, te));
         this.tile = te;
     }
 

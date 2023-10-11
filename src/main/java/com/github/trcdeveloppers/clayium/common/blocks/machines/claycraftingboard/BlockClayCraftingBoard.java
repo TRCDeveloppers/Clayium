@@ -15,12 +15,15 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
 
 import java.util.List;
 
 import static com.github.trcdeveloppers.clayium.common.creativetab.ClayiumCreativeTab.CLAYIUM;
 
+@ParametersAreNonnullByDefault
 @CBlock(registryName = "clay_crafting_board")
 public class BlockClayCraftingBoard extends BlockContainer {
     private final AxisAlignedBB BOUND_BOX = new AxisAlignedBB(0f,0f,0f,1f,0.25f,1f);
@@ -69,6 +72,7 @@ public class BlockClayCraftingBoard extends BlockContainer {
         return true;
     }
 
+    @Nonnull
     @Override
     public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
         return BOUND_BOX;

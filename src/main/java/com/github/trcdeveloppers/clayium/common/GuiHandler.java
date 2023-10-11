@@ -1,6 +1,9 @@
 package com.github.trcdeveloppers.clayium.common;
 
-import com.github.trcdeveloppers.clayium.common.blocks.machines.clayworktable.ClayWorktableContainer;
+import com.github.trcdeveloppers.clayium.client.gui.GuiClayCraftingBoard;
+import com.github.trcdeveloppers.clayium.common.blocks.machines.claycraftingboard.ContainerClayCraftingBoard;
+import com.github.trcdeveloppers.clayium.common.blocks.machines.claycraftingboard.TileClayCraftingBoard;
+import com.github.trcdeveloppers.clayium.common.blocks.machines.clayworktable.ContainerClayWorktable;
 import com.github.trcdeveloppers.clayium.common.blocks.machines.clayworktable.TileClayWorkTable;
 import com.github.trcdeveloppers.clayium.client.gui.GuiClayWorkTable;
 import net.minecraft.entity.player.EntityPlayer;
@@ -13,6 +16,7 @@ import javax.annotation.Nullable;
 
 public class GuiHandler implements IGuiHandler {
     public static final int CLAY_WORK_TABLE = 1;
+    public static final int CLAY_CRAFTING_BOARD = 2;
 
     @Nullable
     @Override
@@ -22,7 +26,9 @@ public class GuiHandler implements IGuiHandler {
 
         switch (ID) {
             case CLAY_WORK_TABLE:
-                return new ClayWorktableContainer(player.inventory, (TileClayWorkTable) te);
+                return new ContainerClayWorktable(player.inventory, (TileClayWorkTable) te);
+            case CLAY_CRAFTING_BOARD:
+                return new ContainerClayCraftingBoard(player.inventory, (TileClayCraftingBoard) te);
         }
         return null;
     }
@@ -36,6 +42,8 @@ public class GuiHandler implements IGuiHandler {
         switch (ID) {
             case CLAY_WORK_TABLE:
                 return new GuiClayWorkTable(player.inventory, (TileClayWorkTable) te);
+            case CLAY_CRAFTING_BOARD:
+                return new GuiClayCraftingBoard(player.inventory, (TileClayCraftingBoard) te);
         }
         return null;
     }

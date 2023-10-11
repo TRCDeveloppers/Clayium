@@ -16,14 +16,14 @@ import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @ParametersAreNonnullByDefault
-public class ClayWorktableContainer extends Container {
+public class ContainerClayWorktable extends Container {
 
     private final TileClayWorkTable tile;
 
     private int lastCraftingProgress = 0;
     private int lastRequiredProgress = 0;
 
-    public ClayWorktableContainer(IInventory playerInv, TileClayWorkTable te) {
+    public ContainerClayWorktable(IInventory playerInv, TileClayWorkTable te) {
         this.tile = te;
         IItemHandler itemHandler = te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null);
         // Input

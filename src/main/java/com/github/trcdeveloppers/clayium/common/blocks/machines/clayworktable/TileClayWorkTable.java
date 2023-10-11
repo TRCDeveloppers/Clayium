@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 
 public class TileClayWorkTable extends TileEntity {
 
-    static final Capability<IItemHandler> ITEM_HANDLER_CAPABILITY = CapabilityItemHandler.ITEM_HANDLER_CAPABILITY;
+    private static final Capability<IItemHandler> ITEM_HANDLER_CAPABILITY = CapabilityItemHandler.ITEM_HANDLER_CAPABILITY;
     private final ItemStackHandler handler = new ItemStackHandler(4);
     int craftingProgress = 0;
     int requiredProgress = 0;
