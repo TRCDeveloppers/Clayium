@@ -1,0 +1,30 @@
+{
+  "parent": "block/block",
+  "textures": {
+    "particle": "clayium:blocks/compressedclay-0",
+    "texture": "clayium:blocks/compressedclay-0",
+    "top": "clayium:blocks/claycraftingtable"
+  },
+  "elements": [
+    {
+      "from": [ 0, 0, 0 ],
+      "to": [ 16, 4, 16 ],
+      "faces": {
+        "down":  { "uv": [ 0, 0, 16, 16 ], "texture": "#texture" },
+        "up":    { "uv": [ 0, 0, 16, 16 ], "texture": "#texture" },
+        "north": { "uv": [ 0, 12, 16, 16 ], "texture": "#texture" },
+        "south": { "uv": [ 0, 12, 16, 16 ], "texture": "#texture" },
+        "west":  { "uv": [ 0, 12, 16, 16 ], "texture": "#texture" },
+        "east":  { "uv": [ 0, 12, 16, 16 ], "texture": "#texture" }
+      }
+    },
+    {
+      "from": [ 4, 4.01, 4 ],
+      "to": [ 12, 4.01, 12 ],
+      "faces": {
+        "up":    { "uv": [ 4, 4, 12, 12 ], "texture": "#top" }
+      }
+    }
+  ]
+}
+
