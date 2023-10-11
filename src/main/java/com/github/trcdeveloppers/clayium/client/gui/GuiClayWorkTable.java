@@ -26,7 +26,7 @@ public class GuiClayWorkTable extends GuiContainer {
 
     @Override
     protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
-        this.fontRenderer.drawString(I18n.format("recipe.ClayWorkTable"), 6, 6, 0x404040);
+        this.fontRenderer.drawString(I18n.format("recipe.clayium.ClayWorkTable"), 6, 6, 0x404040);
         this.fontRenderer.drawString(I18n.format("container.inventory"), 8, this.ySize - 94, 0x404040);
     }
 
