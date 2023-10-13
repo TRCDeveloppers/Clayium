@@ -28,7 +28,7 @@ public class GuiHandler implements IGuiHandler {
             case CLAY_WORK_TABLE:
                 return new ContainerClayWorktable(player.inventory, (TileClayWorkTable) te);
             case CLAY_CRAFTING_BOARD:
-                return new ContainerClayCraftingBoard(player.inventory, (TileClayCraftingBoard) te);
+                return new ContainerClayCraftingBoard(player.inventory,world,new BlockPos(x, y, z), (TileClayCraftingBoard) te);
         }
         return null;
     }
@@ -43,7 +43,7 @@ public class GuiHandler implements IGuiHandler {
             case CLAY_WORK_TABLE:
                 return new GuiClayWorkTable(player.inventory, (TileClayWorkTable) te);
             case CLAY_CRAFTING_BOARD:
-                return new GuiClayCraftingBoard(player.inventory, (TileClayCraftingBoard) te);
+                return new GuiClayCraftingBoard(player.inventory, world, new BlockPos(x, y, z), (TileClayCraftingBoard) te);
         }
         return null;
     }

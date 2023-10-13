@@ -1,5 +1,7 @@
 package com.github.trcdeveloppers.clayium.common.blocks.machines.claycraftingboard;
 
+import com.github.trcdeveloppers.clayium.Clayium;
+import com.github.trcdeveloppers.clayium.common.GuiHandler;
 import com.github.trcdeveloppers.clayium.common.annotation.CBlock;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -64,11 +66,19 @@ public class BlockClayCraftingBoard extends BlockContainer {
     @Nullable
     @Override
     public TileEntity createNewTileEntity(World worldIn, int meta) {
-        return null;
+        return new TileClayCraftingBoard(worldIn);
     }
 
     @Override
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+        if (worldIn.isRemote) {
+            return true;
+        }
+        TileClayCraftingBoard te = (TileClayCraftingBoard) worldIn.getTileEntity(pos);
+        if (te == null) {
+            return false;
+        }
+        playerIn.openGui(Clayium.INSTANCE, GuiHandler.CLAY_CRAFTING_BOARD, worldIn, pos.getX(), pos.getY(), pos.getZ());
         return true;
     }
 
