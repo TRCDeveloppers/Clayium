@@ -3,7 +3,7 @@ package com.github.trcdeveloppers.clayium.common
 import com.github.trcdeveloppers.clayium.common.blocks.ClayiumBlocks
 import com.github.trcdeveloppers.clayium.common.blocks.machine.claybuffer.TileClayBuffer
 import com.github.trcdeveloppers.clayium.common.blocks.machine.clayworktable.TileClayWorkTable
-import com.github.trcdeveloppers.clayium.common.interfaces.IShiftRightClickable
+import com.github.trcdeveloppers.clayium.common.interfaces.IShiftRightClickListener
 import com.github.trcdeveloppers.clayium.common.items.ClayiumItems
 import com.github.trcdeveloppers.clayium.common.worldgen.ClayOreGenerator
 import net.minecraft.block.Block
@@ -55,7 +55,7 @@ open class ClayiumCommonProxy {
         val blockState = world.getBlockState(e.pos)
         val block = blockState.block
 
-        if (block is IShiftRightClickable && e.entityPlayer.isSneaking) {
+        if (block is IShiftRightClickListener && e.entityPlayer.isSneaking) {
             val (cancel, swing) = block.onShiftRightClicked(world, e.pos, blockState, e.entityPlayer, e.hand, e.face ?: return, e.hitVec.x.toFloat(), e.hitVec.y.toFloat(), e.hitVec.z.toFloat())
             e.isCanceled = cancel
             if (swing) e.entityPlayer.swingArm(e.hand)

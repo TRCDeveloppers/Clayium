@@ -7,7 +7,7 @@ import net.minecraft.util.EnumHand
 import net.minecraft.util.math.BlockPos
 import net.minecraft.world.World
 
-interface IShiftRightClickable {
+interface IShiftRightClickListener {
 
     /**
      * Called when the block is right-clicked while the player is sneaking.

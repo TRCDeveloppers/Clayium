@@ -4,7 +4,7 @@ import com.github.trcdeveloppers.clayium.common.Clayium
 import com.github.trcdeveloppers.clayium.common.Clayium.Companion.MOD_ID
 import com.github.trcdeveloppers.clayium.common.GuiHandler
 import com.github.trcdeveloppers.clayium.common.blocks.unlistedproperty.UnlistedBooleanArray
-import com.github.trcdeveloppers.clayium.common.interfaces.IShiftRightClickable
+import com.github.trcdeveloppers.clayium.common.interfaces.IShiftRightClickListener
 import com.github.trcdeveloppers.clayium.common.items.ClayiumItems
 import com.github.trcdeveloppers.clayium.common.util.UtilLocale
 import net.minecraft.block.Block
@@ -43,7 +43,7 @@ import net.minecraftforge.items.CapabilityItemHandler
 class BlockClayBuffer private constructor(
     val tier: Int,
     registryName: String
-) : BlockContainer(Material.IRON), IShiftRightClickable {
+) : BlockContainer(Material.IRON), IShiftRightClickListener {
 
     init {
         this.creativeTab = Clayium.CreativeTab
@@ -133,9 +133,9 @@ class BlockClayBuffer private constructor(
         player: EntityPlayer, hand: EnumHand,
         facing: EnumFacing,
         hitX: Float, hitY: Float, hitZ: Float,
-    ): IShiftRightClickable.Result {
+    ): IShiftRightClickListener.Result {
         if (hand === EnumHand.OFF_HAND) {
-            return IShiftRightClickable.Result(
+            return IShiftRightClickListener.Result(
                 (player.getHeldItem(EnumHand.MAIN_HAND).item === ClayiumItems.CLAY_IO_CONFIGURATOR
                     || player.getHeldItem(EnumHand.MAIN_HAND).item === ClayiumItems.CLAY_PIPING_TOOL),
                 false,
@@ -144,7 +144,7 @@ class BlockClayBuffer private constructor(
         if (world.isRemote) {
             val isUsingTool = (player.getHeldItem(EnumHand.MAIN_HAND).item === ClayiumItems.CLAY_IO_CONFIGURATOR
                         || player.getHeldItem(EnumHand.MAIN_HAND).item === ClayiumItems.CLAY_PIPING_TOOL)
-            return IShiftRightClickable.Result(isUsingTool, isUsingTool)
+            return IShiftRightClickListener.Result(isUsingTool, isUsingTool)
         }
 
         when (player.getHeldItem(hand).item) {
@@ -154,11 +154,11 @@ class BlockClayBuffer private constructor(
             ClayiumItems.CLAY_PIPING_TOOL -> {
                 (world.getTileEntity(pos) as? TileClayBuffer)?.rotate()
             }
-            else -> return IShiftRightClickable.Result(false, false)
+            else -> return IShiftRightClickListener.Result(false, false)
         }
 
         world.notifyBlockUpdate(pos, state, state, Constants.BlockFlags.SEND_TO_CLIENTS)
-        return IShiftRightClickable.Result(true, true)
+        return IShiftRightClickListener.Result(true, true)
     }
 
     override fun onNeighborChange(world: IBlockAccess, pos: BlockPos, neighbor: BlockPos) {

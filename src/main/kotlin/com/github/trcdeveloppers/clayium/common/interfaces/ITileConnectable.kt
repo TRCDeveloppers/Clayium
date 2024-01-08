@@ -2,7 +2,7 @@ package com.github.trcdeveloppers.clayium.common.interfaces
 
 import net.minecraft.util.EnumFacing
 
-interface IConnectable {
+interface ITileConnectable {
     fun getInput(facing: EnumFacing): Int {
         return -1
     }

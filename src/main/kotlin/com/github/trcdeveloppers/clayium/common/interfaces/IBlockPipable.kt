@@ -1,5 +1,5 @@
 package com.github.trcdeveloppers.clayium.common.interfaces
 
-interface IPipable {
+interface IBlockPipable {
     var isPipe: Boolean
 }

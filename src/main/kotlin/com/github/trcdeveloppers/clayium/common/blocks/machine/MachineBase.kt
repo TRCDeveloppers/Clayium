@@ -1,8 +1,8 @@
 package com.github.trcdeveloppers.clayium.common.blocks.machine
 
 import com.github.trcdeveloppers.clayium.common.interfaces.IClayEnergyContainer
-import com.github.trcdeveloppers.clayium.common.interfaces.IConnectable
-import com.github.trcdeveloppers.clayium.common.interfaces.IPipable
+import com.github.trcdeveloppers.clayium.common.interfaces.ITileConnectable
+import com.github.trcdeveloppers.clayium.common.interfaces.IBlockPipable
 import com.github.trcdeveloppers.clayium.common.interfaces.ITiered
 import net.minecraft.block.Block
 import net.minecraft.block.material.MapColor
@@ -10,7 +10,7 @@ import net.minecraft.block.material.Material
 import net.minecraft.util.EnumFacing
 import java.util.EnumMap
 
-abstract class MachineBase : Block, ITiered, IClayEnergyContainer, IPipable, IConnectable {
+abstract class MachineBase : Block, ITiered, IClayEnergyContainer, IBlockPipable, ITileConnectable {
     private val inputMap: MutableMap<EnumFacing, Int> = EnumMap(EnumFacing::class.java)
     private val outputMap: MutableMap<EnumFacing, Int> = EnumMap(EnumFacing::class.java)
 
